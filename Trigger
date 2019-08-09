@@ -1,0 +1,16 @@
+DELIMITER $$
+
+CREATE 
+    TRIGGER my_trigger BEFORE INSERT 
+    ON class 
+    FOR EACH ROW BEGIN
+        IF NEW.SEX = 'M' THEN 
+            INSERT INTO my_trigger VALUES('Male student registered');
+        ELSEIF NEW.SEX = 'F' THEN
+            INSERT INTO my_trigger VALUES('Female student registered');
+        ELSE
+            INSERT INTO my_trigger VALUES('No information available');
+        END IF;
+    END$$
+    
+    DELIMITER ;
