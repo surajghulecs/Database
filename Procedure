@@ -1,0 +1,8 @@
+CREATE PROCEDURE Exam()
+BEGIN
+        select c.roll_no, c.first_name, c.last_name, c.SEX, e.result from class c left join Exam e ON (c.roll_no =
+e.roll_no) where (e.result = 'Fail');
+END
+
+
+call Exam()
